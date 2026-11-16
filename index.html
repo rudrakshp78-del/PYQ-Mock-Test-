@@ -1,0 +1,2750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free UPSC CSE Prelims PYQ Practice | The PYQ Project</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Fredoka:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* MEASURED CSS CUSTOM PROPERTIES (REUSED VERBATIM) */
+    :root {
+      --background: #252523;
+      --foreground: #ece7dc;
+      --card: #2e2e2b;
+      --card-foreground: #ece7dc;
+      --qc-surface: #1e1e1c;
+      --popover: #2e2e2b;
+      --popover-foreground: #ece7dc;
+      --primary: #ebb34e;
+      --primary-foreground: #1d1a12;
+      --secondary: #353430;
+      --secondary-foreground: #ece7dc;
+      --muted: #33322e;
+      --muted-foreground: #a19b8e;
+      --accent: #3a301d;
+      --accent-foreground: #ebb34e;
+      --destructive: #e5584c;
+      --destructive-foreground: #fff;
+      --correct: #2fbf6c;
+      --correct-foreground: #fff;
+      --border: #3b3a36;
+      --input: #3b3a36;
+      --ring: #ebb34e;
+      --dot: #ece7dc0b;
+      --radius: .875rem;
+      --tint: #3a301d;
+      --note-em-bg: #78aaff3d;
+      --accent-line: #ebb34e;
+      --btn: #ebb34e;
+      --btn-ink: #1d1a12;
+      --sel: #ebb34e;
+      --sel-ink: #1d1a12;
+      --logo-edge: #f2ecdd;
+      --logo-shadow: #8a5a12;
+      --pencil-coral: #ee765e;
+      --pencil-stroke: #0e0d0b;
+      --line-strong: #0e0d0b;
+      --shadow2: #8a5a12;
+      --correct-bg: #14301f;
+      --correct-border: #2fbf6c;
+      --correct-text: #6ee0a0;
+      --wrong-bg: #3a1b1b;
+      --wrong-border: #e5584c;
+      --wrong-text: #ff9a90;
+      --bad: #e5584c;
+      --bad-bg: #3a1b1b;
+      --bad-ink: #ff9a90;
+      --ok: #2fbf6c;
+      --ok-bg: #14301f;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #252523;
+        --foreground: #ECE7DC;
+        --link: #EBB34E;
+        --surface-1: #2E2E2B;
+        --surface-2: #2C2C28;
+        --surface-3: #EBB34E1A;
+        --surface-4: #25252380;
+        --muted-1: #EBB34E;
+        --muted-2: #A19B8E;
+        --muted-3: #A9A69C;
+        --button: #EBB34E;
+        --button-text: #1D1A12;
+      }
+    }
+
+    /* BASE RESETS & MEASURED FONTS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: -apple-system, 'Fredoka', 'Noto Sans Devanagari', BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+      background-size: 24px 24px;
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+
+    h1 {
+      font-size: 16px;
+      font-weight: 400;
+      color: #ece7dc;
+      line-height: 24px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ece7dc;
+      line-height: 32px;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ece7dc;
+      line-height: 20px;
+    }
+
+    a {
+      color: #ebb34e;
+      text-decoration: none;
+      transition: color 150ms ease;
+    }
+    a:hover {
+      color: #f7cb78;
+    }
+
+    /* KEYFRAME ANIMATIONS */
+    @keyframes pyq-sign {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-1.5deg); }
+      75% { transform: rotate(1.5deg); }
+    }
+
+    @keyframes pyq-rise {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.75; transform: scale(1.02); }
+    }
+
+    @keyframes enter {
+      from {
+        opacity: 0;
+        transform: scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .animate-pyq-rise {
+      animation: pyq-rise 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-pyq-sign {
+      animation: pyq-sign 4s ease-in-out infinite;
+    }
+
+    /* MEASURED COMPONENT CSS BLOCKS */
+    .button-primary {
+      background: #EBB34E;
+      color: #1D1A12;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 180ms ease;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .button-primary:hover {
+      background: #f7cb78;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(235, 179, 78, 0.25);
+    }
+    .button-primary:active {
+      transform: translateY(0);
+    }
+
+    .card {
+      background: #2E2E2B;
+      color: #ECE7DC;
+      border: 1px solid #3B3A36;
+      border-radius: 25.2px;
+      padding: 40px;
+      font-size: 16px;
+      box-shadow: #0000001A 0px 4px 6px -1px, #0000001A 0px 2px 4px -2px;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 768px;
+      margin: 0 auto;
+    }
+
+    .input {
+      background: #2E2E2B;
+      color: #ECE7DC;
+      border: 1px solid #3B3A36;
+      border-radius: 14px;
+      padding: 12px 40px;
+      font-size: 14px;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+      font-family: inherit;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+    .input:focus {
+      border-color: #EBB34E;
+      box-shadow: 0 0 0 2px rgba(235, 179, 78, 0.25);
+    }
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted-foreground);
+      pointer-events: none;
+      display: flex;
+    }
+
+    /* BUTTON STYLE 2 ("Leaderboard Top aspirants and scores") */
+    .btn-style-2 {
+      background: #2C2C28;
+      color: #ECE9E2;
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 400;
+      border: 1.17647px solid #3A3A34;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      text-decoration: none;
+      transition: all 180ms ease;
+      font-family: inherit;
+      width: 100%;
+      box-shadow: #3C280A1F 0px 1px 4px 0px;
+    }
+    .btn-style-2:hover {
+      background: #353430;
+      border-color: #ebb34e80;
+      transform: translateY(-1.5px);
+      box-shadow: #00000040 0px 10px 20px -5px;
+    }
+
+    /* BUTTON STYLE 3 ("Subject") */
+    .btn-style-3 {
+      background: #2E2E2B;
+      color: #ECE7DC;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid #3B3A36;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 180ms ease;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .btn-style-3:hover, .btn-style-3.active {
+      border-color: #EBB34E;
+      color: #EBB34E;
+      background: #3a301d66;
+    }
+
+    /* HEADER */
+    header {
+      background: #252523;
+      border-bottom: 1px solid #3b3a36;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .pencil-badge {
+      width: 34px;
+      height: 34px;
+      background: #ee765e;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #0e0d0b;
+      box-shadow: 2px 2px 0px #0e0d0b;
+      transform: rotate(-6deg);
+      transition: transform 200ms ease;
+    }
+    .brand-logo:hover .pencil-badge {
+      transform: rotate(0deg) scale(1.05);
+    }
+    .pencil-badge svg {
+      width: 18px;
+      height: 18px;
+      color: #1d1a12;
+      stroke-width: 2.4;
+    }
+
+    .brand-title {
+      font-family: 'Bowlby One', cursive, sans-serif;
+      font-size: 17.6px;
+      color: #ECE7DC;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand-tag {
+      font-size: 11.2px;
+      font-weight: 700;
+      background: #ebb34e26;
+      color: #ebb34e;
+      border: 1px solid #ebb34e55;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      letter-spacing: 0;
+      font-family: -apple-system, 'Fredoka', sans-serif;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+    nav li a, nav li button {
+      font-size: 16px;
+      color: #ECE7DC;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: all 150ms ease;
+    }
+    nav li a:hover, nav li button:hover {
+      color: #ebb34e;
+      background: #353430;
+    }
+    nav li a.active {
+      color: #1d1a12;
+      background: #ebb34e;
+      font-weight: 700;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* LANGUAGE BADGE TOGGLE (CRITICAL REQUIREMENT) */
+    .lang-switcher {
+      display: inline-flex;
+      background: #2C2C28;
+      border: 1.17647px solid #3A3A34;
+      border-radius: 12px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .lang-btn {
+      background: transparent;
+      color: #a19b8e;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 9px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 180ms ease;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .lang-btn.active {
+      background: #ebb34e;
+      color: #1d1a12;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .lang-btn:hover:not(.active) {
+      color: #ece7dc;
+      background: #353430;
+    }
+
+    .btn-dark-toggle {
+      background: #2C2C28;
+      color: #ECE9E2;
+      border: 1.17647px solid #3A3A34;
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 150ms ease;
+    }
+    .btn-dark-toggle:hover {
+      border-color: #ebb34e;
+      color: #ebb34e;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      background: linear-gradient(180deg, rgba(37, 37, 35, 0.9) 0%, rgba(30, 30, 28, 0.95) 100%);
+      padding: 48px 20px 32px 20px;
+      text-align: center;
+      border-bottom: 1px solid #3b3a36;
+      position: relative;
+    }
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #3a301d;
+      border: 1px solid #ebb34e66;
+      color: #ebb34e;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Bowlby One', cursive, sans-serif;
+      font-size: 39.6px;
+      line-height: 48px;
+      color: #ECE7DC;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      color: #a19b8e;
+      max-width: 600px;
+      margin: 0 auto 24px auto;
+    }
+
+    /* QUICK NAVIGATION GRID (MEASURED LINKS) */
+    .quick-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 12px;
+      max-width: 1267.2px;
+      margin: 28px auto 0 auto;
+      text-align: left;
+    }
+    .quick-card {
+      background: #2C2C28;
+      border: 1.17647px solid #3A3A34;
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: #ECE9E2;
+      transition: all 180ms ease;
+    }
+    .quick-card:hover {
+      border-color: #ebb34e;
+      background: #353430;
+      transform: translateY(-2px);
+      box-shadow: #00000040 0px 25px 50px -12px;
+    }
+    .quick-card-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .quick-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11.2px;
+      background: #252523;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ebb34e;
+      border: 1px solid #3b3a36;
+      flex-shrink: 0;
+    }
+    .quick-card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ECE7DC;
+      margin-bottom: 2px;
+    }
+    .quick-card-desc {
+      font-size: 12.5px;
+      color: #a19b8e;
+      line-height: 16px;
+    }
+
+    /* PAPER & MODE TABS */
+    .tabs-container {
+      max-width: 1267.2px;
+      margin: 28px auto 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .paper-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #2C2C28;
+      padding: 4px;
+      border-radius: 14px;
+      border: 1px solid #3B3A36;
+    }
+    .paper-tab-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: #A19B8E;
+      transition: all 150ms ease;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .paper-tab-btn.active {
+      background: #EBB34E;
+      color: #1D1A12;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .paper-tab-btn:hover:not(.active) {
+      color: #ECE7DC;
+    }
+
+    /* MOCK TEST MODE BANNER (CRITICAL HINDI ENHANCEMENT) */
+    .mock-banner {
+      background: linear-gradient(90deg, #1e1e1c 0%, #2a251b 50%, #1e1e1c 100%);
+      border: 1px solid #ebb34e55;
+      border-radius: 14px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 18px 20px;
+    }
+    .mock-banner-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      background: #2fbf6c;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    .mock-stats-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .stat-chip {
+      background: #252523;
+      border: 1px solid #3b3a36;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stat-chip b {
+      color: #ebb34e;
+    }
+
+    /* FILTERS BAR */
+    .filter-bar {
+      max-width: 1267.2px;
+      margin: 16px auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      padding-bottom: 6px;
+    }
+    .filter-chip {
+      background: #2E2E2B;
+      color: #ECE7DC;
+      border-radius: 12px;
+      padding: 8px 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      border: 1px solid #3B3A36;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 180ms ease;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .filter-chip:hover, .filter-chip.active {
+      border-color: #EBB34E;
+      color: #EBB34E;
+      background: #3a301d88;
+    }
+
+    /* MAIN APP LAYOUT (FLEX + GRID) */
+    .main-content {
+      max-width: 1267.2px;
+      margin: 20px auto 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 992px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* QUESTION CARD (MEASURED .card with exact radii and surface) */
+    .question-card {
+      background: var(--qc-surface);
+      color: #ECE7DC;
+      border: 1px solid #3B3A36;
+      border-radius: 25.2px;
+      padding: 32px 36px;
+      box-shadow: #00000040 0px 10px 30px -10px;
+      position: relative;
+    }
+    @media (max-width: 640px) {
+      .question-card {
+        padding: 20px;
+      }
+    }
+
+    .q-meta-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid #3b3a36;
+    }
+    .q-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .q-pill {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: #2E2E2B;
+      color: #a19b8e;
+      border: 1px solid #3b3a36;
+    }
+    .q-pill.highlight {
+      background: #3a301d;
+      color: #ebb34e;
+      border-color: #ebb34e66;
+    }
+    .q-pill.hindi-badge {
+      background: #14301f;
+      color: #6ee0a0;
+      border-color: #2fbf6c66;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .q-actions-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .icon-action-btn {
+      background: #2c2c28;
+      border: 1px solid #3b3a36;
+      color: #a19b8e;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+    .icon-action-btn:hover, .icon-action-btn.active {
+      color: #ebb34e;
+      border-color: #ebb34e;
+      background: #3a301d55;
+    }
+
+    /* QUESTION BODY & STATEMENTS */
+    .question-text-block {
+      margin-bottom: 24px;
+    }
+    .question-prompt {
+      font-size: 17.6px;
+      line-height: 28px;
+      font-weight: 500;
+      color: #ECE7DC;
+      margin-bottom: 16px;
+    }
+    .hindi-text {
+      font-family: 'Noto Sans Devanagari', -apple-system, sans-serif;
+      font-size: 17.6px;
+      line-height: 29px;
+      color: #ECE7DC;
+    }
+
+    .statements-list {
+      background: #252523;
+      border: 1px solid #3b3a36;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .statement-item {
+      display: flex;
+      gap: 12px;
+      font-size: 15.5px;
+      line-height: 24px;
+      margin-bottom: 10px;
+      color: #ECE7DC;
+    }
+    .statement-item:last-child {
+      margin-bottom: 0;
+    }
+    .statement-num {
+      color: #ebb34e;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .question-sub-prompt {
+      font-size: 15px;
+      font-weight: 600;
+      color: #a9a69c;
+      margin-bottom: 18px;
+    }
+
+    /* OPTIONS (A, B, C, D) WITH EXACT MEASURED FEEDBACK COLORS */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .option-card {
+      background: #2E2E2B;
+      border: 1.5px solid #3B3A36;
+      border-radius: 14px;
+      padding: 14px 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: all 180ms ease;
+      position: relative;
+    }
+    .option-card:hover:not(.evaluated) {
+      border-color: #ebb34e;
+      background: #33322e;
+      transform: translateX(3px);
+    }
+    .option-card.selected:not(.evaluated) {
+      border-color: #ebb34e;
+      background: #3a301d66;
+    }
+
+    .option-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: #252523;
+      border: 1px solid #3b3a36;
+      color: #ECE7DC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13.5px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: all 180ms ease;
+    }
+    .option-card:hover:not(.evaluated) .option-letter {
+      background: #ebb34e;
+      color: #1d1a12;
+      border-color: #ebb34e;
+    }
+
+    .option-text {
+      font-size: 15.5px;
+      line-height: 23px;
+      color: #ECE7DC;
+      flex-grow: 1;
+    }
+
+    /* EVALUATION FEEDBACK CLASSES (EXACT MEASURED ROOT PROPERTIES) */
+    .option-card.correct {
+      background: var(--correct-bg) !important;
+      border-color: var(--correct-border) !important;
+      color: var(--correct-text) !important;
+      box-shadow: 0 0 12px rgba(47, 191, 108, 0.2);
+    }
+    .option-card.correct .option-letter {
+      background: var(--correct) !important;
+      color: var(--correct-foreground) !important;
+      border-color: var(--correct) !important;
+    }
+    .option-card.correct .option-text {
+      color: var(--correct-text) !important;
+      font-weight: 600;
+    }
+
+    .option-card.wrong {
+      background: var(--wrong-bg) !important;
+      border-color: var(--wrong-border) !important;
+      color: var(--wrong-text) !important;
+      box-shadow: 0 0 12px rgba(229, 88, 76, 0.2);
+    }
+    .option-card.wrong .option-letter {
+      background: var(--bad) !important;
+      color: #fff !important;
+      border-color: var(--bad) !important;
+    }
+    .option-card.wrong .option-text {
+      color: var(--wrong-text) !important;
+    }
+
+    /* EXPLANATION ACCORDION BOX */
+    .explanation-container {
+      background: #252523;
+      border: 1px solid #3B3A36;
+      border-radius: 14px;
+      padding: 22px;
+      margin-top: 24px;
+      animation: pyq-rise 250ms ease;
+    }
+    .explanation-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #3b3a36;
+    }
+    .explanation-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ebb34e;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .explanation-content {
+      font-size: 14.5px;
+      line-height: 24px;
+      color: #ece7dc;
+    }
+    .explanation-content p {
+      margin-bottom: 10px;
+    }
+    .key-learning-point {
+      background: #3a301d44;
+      border-left: 3px solid #ebb34e;
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      font-size: 13.5px;
+      color: #ECE9E2;
+    }
+
+    /* QUESTION NAV BUTTONS FOOTER */
+    .q-nav-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #3B3A36;
+    }
+    .btn-nav-prev, .btn-nav-next {
+      background: #2C2C28;
+      color: #ECE7DC;
+      border: 1px solid #3B3A36;
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+      transition: all 150ms ease;
+    }
+    .btn-nav-prev:hover, .btn-nav-next:hover {
+      background: #353430;
+      border-color: #ebb34e;
+      color: #ebb34e;
+    }
+
+    /* RIGHT SIDEBAR: TEST PALETTE, TIMER & SUMMARY */
+    .sidebar-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .sidebar-card {
+      background: #2E2E2B;
+      border: 1px solid #3B3A36;
+      border-radius: 19.6px;
+      padding: 24px;
+      box-shadow: #0000001A 0px 4px 6px -1px;
+    }
+    .sidebar-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ECE7DC;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* PALETTE GRID */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .palette-btn {
+      height: 38px;
+      background: #252523;
+      border: 1px solid #3B3A36;
+      border-radius: 8px;
+      color: #ECE7DC;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      transition: all 120ms ease;
+      position: relative;
+    }
+    .palette-btn:hover {
+      border-color: #ebb34e;
+      transform: scale(1.05);
+    }
+    .palette-btn.current {
+      border: 2px solid #ebb34e;
+      box-shadow: 0 0 8px rgba(235, 179, 78, 0.4);
+    }
+    .palette-btn.answered {
+      background: #14301f;
+      border-color: #2fbf6c;
+      color: #6ee0a0;
+    }
+    .palette-btn.review {
+      background: #33203f;
+      border-color: #a855f7;
+      color: #d8b4fe;
+    }
+    .palette-btn.wrong-ans {
+      background: #3a1b1b;
+      border-color: #e5584c;
+      color: #ff9a90;
+    }
+
+    .palette-legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 12px;
+      color: #a19b8e;
+      border-top: 1px solid #3B3A36;
+      padding-top: 12px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    /* MOCK TEST SCORE BOARD */
+    .score-breakdown-box {
+      background: #252523;
+      border: 1px solid #3B3A36;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+    }
+
+    /* MODAL (LEADERBOARD / TRENDS / SCORECARD) */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.open {
+      display: flex;
+      animation: enter 200ms ease forwards;
+    }
+    .modal-window {
+      background: #2E2E2B;
+      border: 1px solid #3B3A36;
+      border-radius: 25.2px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 32px;
+      box-shadow: #00000040 0px 25px 50px -12px;
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #3B3A36;
+    }
+    .modal-close-btn {
+      background: #252523;
+      border: 1px solid #3b3a36;
+      color: #a19b8e;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-close-btn:hover {
+      color: #ece7dc;
+      border-color: #ebb34e;
+    }
+
+    /* LEADERBOARD TABLE */
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+    .leaderboard-table th {
+      padding: 10px 12px;
+      color: #a19b8e;
+      border-bottom: 1px solid #3b3a36;
+      font-weight: 600;
+    }
+    .leaderboard-table td {
+      padding: 12px;
+      border-bottom: 1px solid #33322e;
+      color: #ece7dc;
+    }
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .rank-1 { background: #ebb34e; color: #1d1a12; }
+    .rank-2 { background: #94a3b8; color: #1d1a12; }
+    .rank-3 { background: #b45309; color: #fff; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #3B3A36;
+      background: #252523;
+      padding: 40px 20px;
+      color: #a19b8e;
+      font-size: 13.5px;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <!-- LOGO & BRAND -->
+      <a href="#" class="brand-logo" onclick="switchSection('practice'); return false;">
+        <div class="pencil-badge">
+          <i data-lucide="edit-3"></i>
+        </div>
+        <div class="brand-title">
+          The P Y Q Project
+        </div>
+        <span class="brand-tag">UPSC CSE</span>
+      </a>
+
+      <!-- NAVIGATION LINKS -->
+      <nav>
+        <ul>
+          <li><button class="active" id="nav-pyq" onclick="switchSection('practice')"><i data-lucide="book-open" style="width:16px;height:16px;"></i> PYQ</button></li>
+          <li><button id="nav-csat" onclick="filterBySubject('CSAT')"><i data-lucide="calculator" style="width:16px;height:16px;"></i> CSAT</button></li>
+          <li><button id="nav-leaderboard" onclick="openModal('leaderboardModal')"><i data-lucide="trophy" style="width:16px;height:16px;"></i> Leaderboard</button></li>
+          <li><button id="nav-trends" onclick="openModal('trendsModal')"><i data-lucide="bar-chart-2" style="width:16px;height:16px;"></i> Trends</button></li>
+        </ul>
+      </nav>
+
+      <!-- ACTIONS: HINDI TOGGLE & DARK MODE BUTTON -->
+      <div class="header-actions">
+        <!-- CRITICAL: HINDI LANGUAGE SWITCHER -->
+        <div class="lang-switcher" title="Select Exam Language">
+          <button class="lang-btn" id="lang-btn-en" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn active" id="lang-btn-hi" onclick="setLanguage('hi')">
+            <span style="font-size:14px;">🇮🇳</span> हिन्दी
+          </button>
+          <button class="lang-btn" id="lang-btn-both" onclick="setLanguage('both')">Both</button>
+        </div>
+
+        <button class="btn-dark-toggle" onclick="toggleDarkMode()" title="Toggle Theme">
+          <i data-lucide="moon" style="width:16px;height:16px;" id="theme-icon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <div class="hero-section">
+    <div class="hero-badge-pill animate-pyq-sign">
+      <i data-lucide="sparkles" style="width:14px;height:14px;"></i>
+      <span>100% Free • Official UPSC Prelims Answer Keys with Detailed Explanations</span>
+    </div>
+    
+    <h1 class="hero-title">The P Y Q Project</h1>
+    <p class="hero-subtitle">
+      Search previous year questions with full Hindi and English mock test simulation, negative marking & official solutions.
+    </p>
+
+    <!-- SEARCH BAR (.input) -->
+    <div class="input-wrapper">
+      <div class="input-icon">
+        <i data-lucide="search" style="width:18px;height:18px;"></i>
+      </div>
+      <input 
+        type="text" 
+        class="input" 
+        id="searchInput"
+        placeholder="Search questions (e.g. Parliament, Inflation, कावेरी बेसिन, मूल अधिकार, Web 3.0)..."
+        oninput="handleSearch(this.value)"
+      />
+    </div>
+
+    <!-- MEASURED QUICK NAVIGATION GRID (FROM LIVE PAGE SPEC) -->
+    <div class="quick-links-grid">
+      <!-- 1. PYQ Search previous year questions -->
+      <a href="#practiceArea" class="quick-card" onclick="switchSection('practice'); return false;">
+        <div class="quick-card-left">
+          <div class="quick-card-icon"><i data-lucide="compass"></i></div>
+          <div>
+            <div class="quick-card-title">PYQ Practice</div>
+            <div class="quick-card-desc">Search previous year questions with filters</div>
+          </div>
+        </div>
+        <i data-lucide="chevron-right" style="color:#a19b8e; width:18px;"></i>
+      </a>
+
+      <!-- 2. Leaderboard Top aspirants and scores -->
+      <a href="#leaderboard" class="quick-card" onclick="openModal('leaderboardModal'); return false;">
+        <div class="quick-card-left">
+          <div class="quick-card-icon"><i data-lucide="award"></i></div>
+          <div>
+            <div class="quick-card-title">Leaderboard</div>
+            <div class="quick-card-desc">Top aspirants and scores across all India</div>
+          </div>
+        </div>
+        <i data-lucide="chevron-right" style="color:#a19b8e; width:18px;"></i>
+      </a>
+
+      <!-- 3. Trends Subject and themewise analytics -->
+      <a href="#trends" class="quick-card" onclick="openModal('trendsModal'); return false;">
+        <div class="quick-card-left">
+          <div class="quick-card-icon"><i data-lucide="trending-up"></i></div>
+          <div>
+            <div class="quick-card-title">Trends</div>
+            <div class="quick-card-desc">Subject and themewise 2011–2024 analytics</div>
+          </div>
+        </div>
+        <i data-lucide="chevron-right" style="color:#a19b8e; width:18px;"></i>
+      </a>
+
+      <!-- 4. Support the Project! Optional. The site is 100% free -->
+      <a href="#support" class="quick-card" onclick="openModal('supportModal'); return false;">
+        <div class="quick-card-left">
+          <div class="quick-card-icon"><i data-lucide="heart"></i></div>
+          <div>
+            <div class="quick-card-title">Support the Project!</div>
+            <div class="quick-card-desc">Optional. The site is 100% free & ad-free</div>
+          </div>
+        </div>
+        <i data-lucide="chevron-right" style="color:#a19b8e; width:18px;"></i>
+      </a>
+
+      <!-- 5. Telegram for updates and LBNs -->
+      <a href="https://t.me" target="_blank" class="quick-card">
+        <div class="quick-card-left">
+          <div class="quick-card-icon"><i data-lucide="send"></i></div>
+          <div>
+            <div class="quick-card-title">Telegram</div>
+            <div class="quick-card-desc">For updates, daily quizzes and revision notes</div>
+          </div>
+        </div>
+        <i data-lucide="external-link" style="color:#a19b8e; width:18px;"></i>
+      </a>
+
+      <!-- 6. YouTube Video tutorials and UPSC tips -->
+      <a href="https://youtube.com" target="_blank" class="quick-card">
+        <div class="quick-card-left">
+          <div class="quick-card-icon"><i data-lucide="play-circle"></i></div>
+          <div>
+            <div class="quick-card-title">YouTube</div>
+            <div class="quick-card-desc">Video tutorials, analysis and UPSC tips</div>
+          </div>
+        </div>
+        <i data-lucide="external-link" style="color:#a19b8e; width:18px;"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- PAPER SELECTION & CONTROLS -->
+  <div class="tabs-container" id="practiceArea">
+    <div class="paper-tabs">
+      <button class="paper-tab-btn active" id="tab-gs1" onclick="switchPaper('GS Paper I')">
+        <i data-lucide="file-text" style="width:16px;"></i> GS Paper I
+      </button>
+      <button class="paper-tab-btn" id="tab-csat" onclick="switchPaper('CSAT Paper II')">
+        <i data-lucide="file-code" style="width:16px;"></i> CSAT Paper II
+      </button>
+      <button class="paper-tab-btn" id="tab-progress" onclick="openModal('progressModal')">
+        <i data-lucide="activity" style="width:16px;"></i> Progress
+      </button>
+    </div>
+
+    <!-- MOCK TEST MODE TOGGLE & TIMER -->
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+      <div class="btn-style-2" style="width:auto; padding:8px 14px; cursor:pointer;" onclick="toggleTestTimer()">
+        <i data-lucide="clock" style="color:#ebb34e; width:18px;"></i>
+        <span>Mock Timer: <b id="timerDisplay" style="color:#ebb34e; font-family:monospace;">120:00</b></span>
+      </div>
+      <button class="button-primary" onclick="submitMockTest()">
+        <i data-lucide="check-circle-2" style="width:16px;"></i>
+        <span>Submit Mock Test (सबमिट)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- HINDI MOCK TEST CALLOUT BANNER -->
+  <div class="mock-banner">
+    <div class="mock-banner-title">
+      <span class="live-dot"></span>
+      <span style="font-weight:700; font-size:14.5px; color:#ECE7DC;">
+        <span style="color:#ebb34e;">UPSC Prelims Mock Test Engine:</span> 
+        <span id="bannerLanguageText">हिन्दी माध्यम एवं अंग्रेजी माध्यम में उपलब्ध (Bilingual Supported)</span>
+      </span>
+    </div>
+    <div class="mock-stats-row">
+      <div class="stat-chip">Marking: <b>+2.00 / -0.66</b></div>
+      <div class="stat-chip">Solved: <b id="stat-solved">0/8</b></div>
+      <div class="stat-chip">Score: <b id="stat-score">0.00</b></div>
+    </div>
+  </div>
+
+  <!-- SUBJECT FILTERS -->
+  <div class="filter-bar">
+    <button class="filter-chip active" onclick="filterBySubject('All')">All Subjects (सभी विषय)</button>
+    <button class="filter-chip" onclick="filterBySubject('Polity')">Polity (राजव्यवस्था)</button>
+    <button class="filter-chip" onclick="filterBySubject('Economy')">Economy (अर्थव्यवस्था)</button>
+    <button class="filter-chip" onclick="filterBySubject('Environment')">Environment (पर्यावरण)</button>
+    <button class="filter-chip" onclick="filterBySubject('History')">History (इतिहास)</button>
+    <button class="filter-chip" onclick="filterBySubject('Geography')">Geography (भूगोल)</button>
+    <button class="filter-chip" onclick="filterBySubject('Sci & Tech')">Science & Tech (विज्ञान)</button>
+    <button class="filter-chip" onclick="filterBySubject('CSAT')">CSAT (सीसैट)</button>
+  </div>
+
+  <!-- MAIN PRACTICE LAYOUT -->
+  <main class="main-content">
+    
+    <!-- LEFT: QUESTION DISPLAY AREA -->
+    <div class="question-container">
+      <div class="question-card animate-pyq-rise" id="questionCard">
+        
+        <!-- QUESTION META HEADER -->
+        <div class="q-meta-header">
+          <div class="q-badge-group">
+            <span class="q-pill highlight" id="qYearBadge">UPSC CSE Prelims 2023</span>
+            <span class="q-pill" id="qSubjectBadge">Polity</span>
+            <span class="q-pill" id="qPaperBadge">GS Paper I</span>
+            <span class="q-pill hindi-badge" id="qLangIndicator">
+              <i data-lucide="globe" style="width:12px;height:12px;"></i>
+              <span id="qLangBadgeText">हिन्दी माध्यम</span>
+            </span>
+          </div>
+          <div class="q-actions-top">
+            <button class="icon-action-btn" id="bookmarkBtn" onclick="toggleBookmark()" title="Bookmark Question">
+              <i data-lucide="bookmark" style="width:16px;"></i>
+            </button>
+            <button class="icon-action-btn" id="soundBtn" onclick="toggleSound()" title="Sound Feedback">
+              <i data-lucide="volume-2" style="width:16px;"></i>
+            </button>
+            <button class="icon-action-btn" onclick="resetCurrentQuestion()" title="Reset Answer">
+              <i data-lucide="rotate-ccw" style="width:16px;"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- QUESTION NUMBER & TEXT (BILINGUAL / HINDI / ENGLISH) -->
+        <div class="question-text-block">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span style="font-size:14px; font-weight:700; color:#ebb34e; text-transform:uppercase; letter-spacing:0.5px;">
+              Question <span id="qCurrentNumber">1</span> of <span id="qTotalNumber">8</span>
+            </span>
+            <span style="font-size:12.5px; color:#a19b8e;">Marks: +2.00 | -0.66</span>
+          </div>
+
+          <!-- ENGLISH QUESTION TEXT (Shown if EN or BOTH) -->
+          <div id="qPromptEn" class="question-prompt" style="display:none;"></div>
+
+          <!-- HINDI QUESTION TEXT (Shown if HI or BOTH) -->
+          <div id="qPromptHi" class="question-prompt hindi-text"></div>
+
+          <!-- STATEMENTS BOX (If question has numbered statements) -->
+          <div id="statementsBox" class="statements-list" style="display:none;"></div>
+
+          <!-- SUB-PROMPT (e.g. Which of the statements given above is/are correct?) -->
+          <div id="qSubPromptEn" class="question-sub-prompt" style="display:none;"></div>
+          <div id="qSubPromptHi" class="question-sub-prompt hindi-text"></div>
+        </div>
+
+        <!-- OPTIONS (A, B, C, D) -->
+        <div class="options-grid" id="optionsGrid">
+          <!-- Dynamically populated options -->
+        </div>
+
+        <!-- EXPLANATION ACCORDION (Triggered after selecting an answer) -->
+        <div class="explanation-container" id="explanationBox" style="display:none;">
+          <div class="explanation-header">
+            <div class="explanation-title">
+              <i data-lucide="check-circle" style="color:#2fbf6c; width:18px;"></i>
+              <span id="explanationTitleText">विस्तृत आधिकारिक समाधान एवं व्याख्या (Official UPSC Solution)</span>
+            </div>
+            <span class="q-pill highlight" id="officialKeyBadge">Answer: Option B</span>
+          </div>
+          <div class="explanation-content" id="explanationText">
+            <!-- Dynamically populated detailed solution in Hindi & English -->
+          </div>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="q-nav-footer">
+          <button class="btn-nav-prev" onclick="navigateQuestion(-1)" id="btnPrev">
+            <i data-lucide="arrow-left" style="width:16px;"></i>
+            <span>Previous (पिछला)</span>
+          </button>
+          
+          <div style="display:flex; gap:8px;">
+            <button class="btn-style-2" style="width:auto; padding:8px 14px;" onclick="markForReview()">
+              <i data-lucide="flag" style="color:#a855f7; width:16px;"></i>
+              <span>Mark for Review</span>
+            </button>
+          </div>
+
+          <button class="btn-nav-next button-primary" onclick="navigateQuestion(1)" id="btnNext">
+            <span>Next (अगला)</span>
+            <i data-lucide="arrow-right" style="width:16px;"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: MOCK TEST PALETTE & SUMMARY -->
+    <aside class="sidebar-panel">
+      
+      <!-- QUESTION PALETTE CARD -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">
+          <span>Question Palette</span>
+          <span style="font-size:12px; color:#ebb34e; font-weight:normal;" id="paletteSubject">All Subjects</span>
+        </div>
+        
+        <div class="palette-grid" id="paletteGrid">
+          <!-- Numbers 1 to 8 generated dynamically -->
+        </div>
+
+        <div class="palette-legend">
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#14301f; border:1px solid #2fbf6c;"></span>
+            <span>Answered (हल किया)</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#3a1b1b; border:1px solid #e5584c;"></span>
+            <span>Incorrect (गलत)</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#33203f; border:1px solid #a855f7;"></span>
+            <span>Flagged (समीक्षा)</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#252523; border:1px solid #3b3a36;"></span>
+            <span>Unvisited (शेष)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIVE SCORE CARD -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">
+          <span>Live Mock Score</span>
+          <i data-lucide="bar-chart" style="color:#ebb34e; width:18px;"></i>
+        </div>
+
+        <div class="score-breakdown-box">
+          <div class="score-row">
+            <span style="color:#a19b8e;">Correct (+2.00)</span>
+            <b id="scoreCorrectCount" style="color:#6ee0a0;">0</b>
+          </div>
+          <div class="score-row">
+            <span style="color:#a19b8e;">Incorrect (-0.66)</span>
+            <b id="scoreWrongCount" style="color:#ff9a90;">0</b>
+          </div>
+          <div class="score-row">
+            <span style="color:#a19b8e;">Accuracy Rate</span>
+            <b id="scoreAccuracy" style="color:#ebb34e;">0.0%</b>
+          </div>
+          <div style="border-top:1px solid #3b3a36; padding-top:8px;" class="score-row">
+            <span style="font-weight:700; color:#ece7dc;">Net Marks</span>
+            <b id="scoreTotalMarks" style="font-size:18px; color:#ebb34e;">0.00 / 16.0</b>
+          </div>
+        </div>
+
+        <button class="button-primary" style="width:100%; margin-top:16px;" onclick="submitMockTest()">
+          <i data-lucide="file-check" style="width:16px;"></i>
+          <span>View Detailed Scorecard</span>
+        </button>
+      </div>
+
+      <!-- LANGUAGE GUIDE CARD -->
+      <div class="sidebar-card" style="border-left: 3px solid #ebb34e;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <span style="font-size:18px;">🇮🇳</span>
+          <b style="color:#ebb34e; font-size:14px;">हिन्दी माध्यम मॉक टेस्ट गाइड</b>
+        </div>
+        <p style="font-size:12.5px; line-height:18px; color:#a19b8e;">
+          यह मॉक टेस्ट पूर्णतः संघ लोक सेवा आयोग (UPSC) के मानक प्रारूप पर आधारित है। आप किसी भी समय ऊपर दिए गए <b>हिन्दी / EN / Both</b> बटन से भाषा बदल सकते हैं।
+        </p>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- MODAL: LEADERBOARD -->
+  <div class="modal-backdrop" id="leaderboardModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <i data-lucide="trophy" style="color:#ebb34e; width:22px;"></i>
+          <h2>All India Prelims Leaderboard</h2>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('leaderboardModal')"><i data-lucide="x"></i></button>
+      </div>
+      <p style="font-size:13.5px; color:#a19b8e; margin-bottom:18px;">
+        Top scoring UPSC aspirants in today's Prelims GS & CSAT Full Length Mocks.
+      </p>
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Aspirant Name</th>
+            <th>Score</th>
+            <th>Accuracy</th>
+            <th>Medium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rank-badge rank-1">1</span></td>
+            <td><b>Aditya Sharma</b> <span style="font-size:11px; color:#a19b8e;">(AIR Mock)</span></td>
+            <td style="color:#6ee0a0; font-weight:700;">146.68</td>
+            <td>89.2%</td>
+            <td>English</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge rank-2">2</span></td>
+            <td><b>प्रिया सिंह</b> <span style="font-size:11px; color:#a19b8e;">(UP)</span></td>
+            <td style="color:#6ee0a0; font-weight:700;">141.34</td>
+            <td>87.5%</td>
+            <td>हिन्दी</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge rank-3">3</span></td>
+            <td><b>Rohan Verma</b> <span style="font-size:11px; color:#a19b8e;">(Delhi)</span></td>
+            <td style="color:#6ee0a0; font-weight:700;">138.02</td>
+            <td>84.1%</td>
+            <td>English</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge" style="background:#353430;">4</span></td>
+            <td><b>विकास कुमार यादव</b> <span style="font-size:11px; color:#a19b8e;">(Bihar)</span></td>
+            <td style="color:#6ee0a0; font-weight:700;">134.66</td>
+            <td>82.8%</td>
+            <td>हिन्दी</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge" style="background:#353430;">5</span></td>
+            <td><b>Ananya Patel</b> <span style="font-size:11px; color:#a19b8e;">(Gujarat)</span></td>
+            <td style="color:#6ee0a0; font-weight:700;">131.32</td>
+            <td>81.0%</td>
+            <td>English</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MODAL: TRENDS & ANALYTICS -->
+  <div class="modal-backdrop" id="trendsModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <i data-lucide="bar-chart-2" style="color:#ebb34e; width:22px;"></i>
+          <h2>UPSC Prelims Question Trends (2011–2024)</h2>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('trendsModal')"><i data-lucide="x"></i></button>
+      </div>
+      <p style="font-size:13.5px; color:#a19b8e; margin-bottom:20px;">
+        Average number of questions asked per subject annually in UPSC CSE Prelims:
+      </p>
+      
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:4px;">
+            <span>Economy (भारतीय अर्थव्यवस्था)</span>
+            <b style="color:#ebb34e;">18–22 Questions (20%)</b>
+          </div>
+          <div style="background:#252523; height:8px; border-radius:4px; overflow:hidden;">
+            <div style="background:#ebb34e; width:21%; height:100%;"></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:4px;">
+            <span>Environment & Ecology (पर्यावरण एवं पारिस्थितिकी)</span>
+            <b style="color:#2fbf6c;">16–20 Questions (18%)</b>
+          </div>
+          <div style="background:#252523; height:8px; border-radius:4px; overflow:hidden;">
+            <div style="background:#2fbf6c; width:19%; height:100%;"></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:4px;">
+            <span>Indian Polity (भारतीय राजव्यवस्था)</span>
+            <b style="color:#4fb3e8;">14–17 Questions (15%)</b>
+          </div>
+          <div style="background:#252523; height:8px; border-radius:4px; overflow:hidden;">
+            <div style="background:#4fb3e8; width:16%; height:100%;"></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:4px;">
+            <span>History & Culture (इतिहास एवं कला-संस्कृति)</span>
+            <b style="color:#ee765e;">14–16 Questions (15%)</b>
+          </div>
+          <div style="background:#252523; height:8px; border-radius:4px; overflow:hidden;">
+            <div style="background:#ee765e; width:15%; height:100%;"></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:4px;">
+            <span>Geography (भूगोल एवं मानचित्र)</span>
+            <b style="color:#a855f7;">12–15 Questions (14%)</b>
+          </div>
+          <div style="background:#252523; height:8px; border-radius:4px; overflow:hidden;">
+            <div style="background:#a855f7; width:13%; height:100%;"></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:4px;">
+            <span>Science & Technology (विज्ञान एवं प्रौद्योगिकी)</span>
+            <b style="color:#f59e0b;">10–13 Questions (12%)</b>
+          </div>
+          <div style="background:#252523; height:8px; border-radius:4px; overflow:hidden;">
+            <div style="background:#f59e0b; width:11%; height:100%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: SCORECARD (FINAL TEST RESULT) -->
+  <div class="modal-backdrop" id="scorecardModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <i data-lucide="award" style="color:#ebb34e; width:24px;"></i>
+          <h2>Prelims Mock Test Result (परिणाम पत्र)</h2>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('scorecardModal')"><i data-lucide="x"></i></button>
+      </div>
+
+      <div style="text-align:center; padding:18px 0; border-bottom:1px solid #3b3a36; margin-bottom:20px;">
+        <div style="font-size:13px; color:#a19b8e; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Your Calculated Score</div>
+        <div style="font-size:42px; font-weight:700; color:#ebb34e;" id="modalNetScore">0.00</div>
+        <div style="font-size:14px; color:#a19b8e;">out of 16.00 Marks (GS Paper I Cutoff Est. ~88–92 / 200)</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
+        <div style="background:#252523; padding:14px; border-radius:12px; border:1px solid #3b3a36;">
+          <div style="font-size:12px; color:#a19b8e;">Correct Answers (सही)</div>
+          <div style="font-size:20px; font-weight:700; color:#6ee0a0;" id="modalCorrectCount">0</div>
+        </div>
+        <div style="background:#252523; padding:14px; border-radius:12px; border:1px solid #3b3a36;">
+          <div style="font-size:12px; color:#a19b8e;">Incorrect Answers (गलत)</div>
+          <div style="font-size:20px; font-weight:700; color:#ff9a90;" id="modalWrongCount">0</div>
+        </div>
+        <div style="background:#252523; padding:14px; border-radius:12px; border:1px solid #3b3a36;">
+          <div style="font-size:12px; color:#a19b8e;">Accuracy Rate (सटीकता)</div>
+          <div style="font-size:20px; font-weight:700; color:#ebb34e;" id="modalAccuracy">0%</div>
+        </div>
+        <div style="background:#252523; padding:14px; border-radius:12px; border:1px solid #3b3a36;">
+          <div style="font-size:12px; color:#a19b8e;">Time Spent (समय)</div>
+          <div style="font-size:20px; font-weight:700; color:#ECE7DC;" id="modalTimeSpent">02:14</div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:10px;">
+        <button class="button-primary" style="flex:1;" onclick="closeModal('scorecardModal')">
+          Review Questions & Solutions
+        </button>
+        <button class="btn-style-2" style="width:auto;" onclick="restartMockTest()">
+          <i data-lucide="rotate-ccw"></i> Restart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: SUPPORT THE PROJECT -->
+  <div class="modal-backdrop" id="supportModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h2>Support The PYQ Project</h2>
+        <button class="modal-close-btn" onclick="closeModal('supportModal')"><i data-lucide="x"></i></button>
+      </div>
+      <p style="font-size:14.5px; line-height:22px; color:#ECE7DC; margin-bottom:14px;">
+        The PYQ Project is 100% free and open to every UPSC CSE aspirant across India without any paywalls or subscriptions.
+      </p>
+      <p style="font-size:13.5px; color:#a19b8e; margin-bottom:20px;">
+        Donations help cover cloud hosting, official translation verification, and adding new PYQs from 1995 to 2024.
+      </p>
+      <div style="background:#252523; padding:16px; border-radius:14px; border:1px solid #3b3a36; text-align:center;">
+        <div style="font-size:12px; color:#a19b8e; margin-bottom:4px;">UPI ID (Support Optional)</div>
+        <div style="font-size:16px; font-weight:700; color:#ebb34e; font-family:monospace;">thepyqproject@upi</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PROGRESS -->
+  <div class="modal-backdrop" id="progressModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <i data-lucide="activity" style="color:#ebb34e; width:22px;"></i>
+          <h2>Your UPSC Prelims Progress</h2>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('progressModal')"><i data-lucide="x"></i></button>
+      </div>
+      <p style="font-size:13.5px; color:#a19b8e; margin-bottom:18px;">
+        Subject-wise mastery and accuracy in Hindi & English mock tests:
+      </p>
+      <div style="display:flex; flex-direction:column; gap:12px;" id="subjectProgressList">
+        <!-- Dynamically filled -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="#" onclick="switchSection('practice'); return false;">GS Paper I PYQs</a>
+      <a href="#" onclick="filterBySubject('CSAT'); return false;">CSAT Paper II</a>
+      <a href="#" onclick="openModal('leaderboardModal'); return false;">Leaderboard</a>
+      <a href="#" onclick="openModal('trendsModal'); return false;">Question Trends</a>
+      <a href="#" onclick="setLanguage('hi'); return false;">हिन्दी माध्यम टेस्ट</a>
+      <a href="#" onclick="openModal('supportModal'); return false;">Support</a>
+    </div>
+    <p>© The PYQ Project — Free UPSC CSE Prelims PYQ Practice & Mock Tests. Designed with authentic measured specs.</p>
+  </footer>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    /* COMPREHENSIVE UPSC PRELIMS QUESTION DATABASE (WITH FULL AUTHENTIC HINDI & ENGLISH) */
+    const QUESTIONS_DB = [
+      {
+        id: 1,
+        year: 2023,
+        paper: "GS Paper I",
+        subject: "Polity",
+        topic: "Parliament of India (भारतीय संसद)",
+        prompt_en: "With reference to the Parliament of India, consider the following statements:",
+        prompt_hi: "भारत की संसद के संदर्भ में, निम्नलिखित कथनों पर विचार कीजिए:",
+        statements_en: [
+          "A bill pending in the Rajya Sabha which has not been passed by the Lok Sabha shall not lapse on the dissolution of the Lok Sabha.",
+          "A bill pending in the Lok Sabha shall not lapse on dissolution if the President has notified intention to summon a joint sitting."
+        ],
+        statements_hi: [
+          "राज्य सभा में लंबित विधेयक, जिसे लोक सभा ने पारित नहीं किया है, लोक सभा के विघटन पर व्यपगत (lapse) नहीं होगा।",
+          "लोक सभा में लंबित कोई विधेयक विघटन पर व्यपगत नहीं होगा, यदि राष्ट्रपति ने संयुक्त बैठक बुलाने की अपनी मंशा अधिसूचित कर दी हो।"
+        ],
+        sub_prompt_en: "Which of the statements given above is/are correct?",
+        sub_prompt_hi: "उपर्युक्त कथनों में से कौन-सा/से सही है/हैं?",
+        options_en: [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        options_hi: [
+          "केवल 1",
+          "केवल 2",
+          "1 और 2 दोनों",
+          "न तो 1, न ही 2"
+        ],
+        correctIndex: 2, // Both 1 and 2
+        explanation_en: `
+          <p><b>Correct Answer: Option (c) — Both 1 and 2</b></p>
+          <p><b>Statement 1 is correct:</b> According to Article 107(4) of the Constitution of India, a bill pending in the Council of States (Rajya Sabha) which has not been passed by the House of the People (Lok Sabha) shall not lapse on a dissolution of the House of the People.</p>
+          <p><b>Statement 2 is correct:</b> Under Article 108(5), if the President has notified his intention to summon the Houses to meet in a joint sitting prior to dissolution, the bill does not lapse and the joint sitting can be held.</p>
+          <div class="key-learning-point">
+            <b>UPSC Trap:</b> Remember that bills originating and pending in Rajya Sabha never lapse unless already passed by Lok Sabha and rejected/pending there!
+          </div>
+        `,
+        explanation_hi: `
+          <p><b>सही उत्तर: विकल्प (c) — 1 और 2 दोनों</b></p>
+          <p><b>कथन 1 सही है:</b> भारतीय संविधान के <b>अनुच्छेद 107(4)</b> के अनुसार, राज्य सभा में लंबित विधेयक, जिसे लोक सभा ने पारित नहीं किया है, लोक सभा के विघटन पर समाप्त (व्यपगत) नहीं होता है।</p>
+          <p><b>कथन 2 सही है:</b> <b>अनुच्छेद 108(5)</b> के अंतर्गत, यदि लोक सभा के विघटन से पूर्व राष्ट्रपति ने दोनों सदनों की संयुक्त बैठक आहूत करने की अपनी मंशा अधिसूचित कर दी है, तो वह विधेयक विघटन के कारण व्यपगत नहीं होता और संयुक्त बैठक आयोजित की जा सकती है।</p>
+          <div class="key-learning-point">
+            <b>मुख्य यूपीएससी सूत्र:</b> राज्य सभा एक स्थायी सदन है, अतः जो विधेयक केवल राज्य सभा में प्रस्तुत हुआ है और लोक सभा तक नहीं पहुंचा, वह कभी व्यपगत नहीं होता।
+          </div>
+        `
+      },
+      {
+        id: 2,
+        year: 2022,
+        paper: "GS Paper I",
+        subject: "Economy",
+        topic: "Monetary Policy & Inflation (मौद्रिक नीति एवं मुद्रास्फीति)",
+        prompt_en: "In India, which one of the following is responsible for maintaining price stability by controlling inflation?",
+        prompt_hi: "भारत में, निम्नलिखित में से कौन मुद्रास्फीति को नियंत्रित कर कीमत स्थिरता बनाए रखने के लिए उत्तरदायी है?",
+        statements_en: [],
+        statements_hi: [],
+        sub_prompt_en: "Select the correct authority:",
+        sub_prompt_hi: "सही उत्तर का चयन कीजिए:",
+        options_en: [
+          "Department of Consumer Affairs",
+          "Expenditure Management Commission",
+          "Financial Stability and Development Council",
+          "Reserve Bank of India"
+        ],
+        options_hi: [
+          "उपभोक्ता मामले विभाग",
+          "व्यय प्रबंधन आयोग",
+          "वित्तीय स्थिरता और विकास परिषद",
+          "भारतीय रिज़र्व बैंक (RBI)"
+        ],
+        correctIndex: 3, // RBI
+        explanation_en: `
+          <p><b>Correct Answer: Option (d) — Reserve Bank of India</b></p>
+          <p>Under the amended <b>Reserve Bank of India Act, 1934</b> (amended in May 2016), the primary objective of monetary policy is to maintain price stability while keeping in mind the objective of growth. The Monetary Policy Committee (MPC) is tasked with maintaining consumer price index (CPI) inflation target of 4% with a tolerance band of +/- 2%.</p>
+        `,
+        explanation_hi: `
+          <p><b>सही उत्तर: विकल्प (d) — भारतीय रिज़र्व बैंक (RBI)</b></p>
+          <p>मई 2016 में संशोधित <b>भारतीय रिज़र्व बैंक अधिनियम, 1934</b> के तहत मौद्रिक नीति का प्राथमिक उद्देश्य विकास को ध्यान में रखते हुए मूल्य स्थिरता बनाए रखना है।</p>
+          <p>मौद्रिक नीति समिति (MPC) को 4% (+/- 2%) के दायरे में उपभोक्ता मूल्य सूचकांक (CPI) आधारित मुद्रास्फीति को नियंत्रित रखने का वैधानिक दायित्व सौंपा गया है।</p>
+        `
+      },
+      {
+        id: 3,
+        year: 2020,
+        paper: "GS Paper I",
+        subject: "Environment",
+        topic: "Protected Areas & River Basins (संरक्षित क्षेत्र एवं कावेरी बेसिन)",
+        prompt_en: "Which of the following protected areas are situated in the Cauvery basin?",
+        prompt_hi: "निम्नलिखित संरक्षित क्षेत्रों में से कौन-से कावेरी बेसिन में स्थित हैं?",
+        statements_en: [
+          "Nagarhole National Park",
+          "Papikonda National Park",
+          "Sathyamangalam Tiger Reserve",
+          "Wayanad Wildlife Sanctuary"
+        ],
+        statements_hi: [
+          "नागरहोल राष्ट्रीय उद्यान",
+          "पापीकोंडा राष्ट्रीय उद्यान",
+          "सत्यमंगलम बाघ अभयारण्य",
+          "वायनाड वन्यजीव अभयारण्य"
+        ],
+        sub_prompt_en: "Select the correct answer using the code given below:",
+        sub_prompt_hi: "नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए:",
+        options_en: [
+          "1 and 2 only",
+          "3 and 4 only",
+          "1, 3 and 4 only",
+          "1, 2, 3 and 4"
+        ],
+        options_hi: [
+          "केवल 1 और 2",
+          "केवल 3 और 4",
+          "केवल 1, 3 और 4",
+          "1, 2, 3 और 4"
+        ],
+        correctIndex: 2, // 1, 3 and 4
+        explanation_en: `
+          <p><b>Correct Answer: Option (c) — 1, 3 and 4 only</b></p>
+          <p><b>Papikonda National Park</b> is located in the <b>Godavari basin</b> in Andhra Pradesh (not Cauvery basin). Eliminating statement 2 directly gives option (c).</p>
+          <p><b>Nagarhole</b> (Kabini river), <b>Sathyamangalam</b> (Bhavani and Moyar rivers), and <b>Wayanad</b> (Kabini river tributaries) are all part of the Cauvery drainage basin.</p>
+        `,
+        explanation_hi: `
+          <p><b>सही उत्तर: विकल्प (c) — केवल 1, 3 और 4</b></p>
+          <p><b>पापीकोंडा राष्ट्रीय उद्यान</b> आंध्र प्रदेश में <b>गोदावरी नदी बेसिन</b> में स्थित है (कावेरी में नहीं)। अतः कथन 2 को एलिमिनेट करने पर सीधे विकल्प (c) प्राप्त होता है।</p>
+          <p>नागरहोल (कबिनी नदी), सत्यमंगलम (भवानी एवं मोयार नदी), तथा वायनाड (कबिनी की सहायक नदियाँ) सभी कावेरी नदी घाटी अपवाह तंत्र का हिस्सा हैं।</p>
+        `
+      },
+      {
+        id: 4,
+        year: 2021,
+        paper: "GS Paper I",
+        subject: "History",
+        topic: "Ancient Indian Terms (प्राचीन भारत की सांस्कृतिक शब्दावली)",
+        prompt_en: "With reference to the cultural history of India, consider the following pairs:",
+        prompt_hi: "भारत के सांस्कृतिक इतिहास के संदर्भ में, निम्नलिखित युग्मों पर विचार कीजिए:",
+        statements_en: [
+          "Parivrajaka — Renunciant and wanderer",
+          "Shramana — Priest with a high status",
+          "Upasaka — Lay follower of Buddhism"
+        ],
+        statements_hi: [
+          "परिव्राजक — परित्यागी व भ्रमणकारी",
+          "श्रमण — उच्च पद का पुजारी",
+          "उपासक — बौद्ध धर्म का साधारण अनुगामी (गृहस्थ अनुयायी)"
+        ],
+        sub_prompt_en: "Which of the pairs given above are correctly matched?",
+        sub_prompt_hi: "उपर्युक्त युग्मों में से कौन-से सही सुमेलित हैं?",
+        options_en: [
+          "1 and 2 only",
+          "1 and 3 only",
+          "2 and 3 only",
+          "1, 2 and 3"
+        ],
+        options_hi: [
+          "केवल 1 और 2",
+          "केवल 1 और 3",
+          "केवल 2 और 3",
+          "1, 2 और 3"
+        ],
+        correctIndex: 1, // 1 and 3 only
+        explanation_en: `
+          <p><b>Correct Answer: Option (b) — 1 and 3 only</b></p>
+          <p><b>Pair 1 is correctly matched:</b> Parivrajaka refers to a wandering ascetic who has renounced worldly life.</p>
+          <p><b>Pair 2 is NOT correctly matched:</b> Shramana refers to an ascetic or monk in heterodox traditions (like Buddhism, Jainism, Ajivika) who rejected orthodox Vedic priestly authority.</p>
+          <p><b>Pair 3 is correctly matched:</b> Upasaka (male) and Upasika (female) were lay followers who supported the Buddhist Sangha while living a householder life.</p>
+        `,
+        explanation_hi: `
+          <p><b>सही उत्तर: विकल्प (b) — केवल 1 और 3</b></p>
+          <p><b>युग्म 1 सही सुमेलित है:</b> परिव्राजक उस व्यक्ति को कहा जाता था जिसने सांसारिक सुखों का त्याग कर दिया हो और ज्ञान की खोज में भ्रमण करता हो।</p>
+          <p><b>युग्म 2 गलत है:</b> श्रमण वैदिक पुरोहित वर्ग के विरोधी संप्रदायों (जैसे बौद्ध, जैन, आजीवक) के तपस्वी या भिक्षु होते थे, न कि उच्च पद के पुजारी।</p>
+          <p><b>युग्म 3 सही सुमेलित है:</b> उपासक बौद्ध धर्म में उन गृहस्थ अनुयायियों को कहा जाता था जो संघ में भिक्षु बने बिना बुद्ध, धम्म और संघ में आस्था रखते थे।</p>
+        `
+      },
+      {
+        id: 5,
+        year: 2022,
+        paper: "GS Paper I",
+        subject: "Geography",
+        topic: "Himalayan Peaks & Ranges (हिमालयी चोटियां एवं पर्वतमालाएं)",
+        prompt_en: "Consider the following pairs of Mountain Peaks and Mountain Ranges:",
+        prompt_hi: "पर्वत शिखरों और पर्वत श्रृंखलाओं के निम्नलिखित युग्मों पर विचार कीजिए:",
+        statements_en: [
+          "Namcha Barwa — Garhwal Himalaya",
+          "Nanda Devi — Kumaon Himalaya",
+          "Nokrek — Sikkim Himalaya"
+        ],
+        statements_hi: [
+          "नामचा बरवा — गढ़वाल हिमालय",
+          "नंदा देवी — कुमाऊं हिमालय",
+          "नोकरेक — सिक्किम हिमालय"
+        ],
+        sub_prompt_en: "Which of the pairs given above is/are correctly matched?",
+        sub_prompt_hi: "उपर्युक्त युग्मों में से कौन-सा/से सही सुमेलित है/हैं?",
+        options_en: [
+          "1 and 2",
+          "2 only",
+          "1 and 3",
+          "3 only"
+        ],
+        options_hi: [
+          "1 और 2",
+          "केवल 2",
+          "1 और 3",
+          "केवल 3"
+        ],
+        correctIndex: 1, // 2 only
+        explanation_en: `
+          <p><b>Correct Answer: Option (b) — 2 only</b></p>
+          <p><b>Pair 1 is incorrect:</b> Namcha Barwa is located in south-eastern Tibet / Arunachal Pradesh border in Assam/Eastern Himalayas, not Garhwal.</p>
+          <p><b>Pair 2 is correct:</b> Nanda Devi peak is located in the Chamoli/Pithoragarh district in the Kumaon/Garhwal section of Uttarakhand Himalayas.</p>
+          <p><b>Pair 3 is incorrect:</b> Nokrek is the highest peak in the <b>Garo Hills</b> (Meghalaya Plateau), not Sikkim Himalaya.</p>
+        `,
+        explanation_hi: `
+          <p><b>सही उत्तर: विकल्प (b) — केवल 2</b></p>
+          <p><b>युग्म 1 गलत है:</b> नामचा बरवा अरुणाचल प्रदेश सीमा/तिब्बत में पूर्वी हिमालय में स्थित है (गढ़वाल में नहीं)।</p>
+          <p><b>युग्म 2 सही है:</b> नंदा देवी कुमाऊं/उत्तराखंड हिमालय में स्थित प्रसिद्ध पर्वत शिखर है।</p>
+          <p><b>युग्म 3 गलत है:</b> नोकरेक मेघालय पठार के <b>गारो हिल्स (Garo Hills)</b> का सर्वोच्च शिखर है, न कि सिक्किम हिमालय का।</p>
+        `
+      },
+      {
+        id: 6,
+        year: 2022,
+        paper: "GS Paper I",
+        subject: "Sci & Tech",
+        topic: "Web 3.0 & Decentralization (वेब 3.0 एवं ब्लॉकचेन तकनीक)",
+        prompt_en: "With reference to 'Web 3.0', consider the following statements:",
+        prompt_hi: "'वेब 3.0' (Web 3.0) के संदर्भ में, निम्नलिखित कथनों पर विचार कीजिए:",
+        statements_en: [
+          "Web 3.0 technology enables people to control their own data.",
+          "In Web 3.0 world, there can be blockchain-based social networks.",
+          "Web 3.0 is operated by users collectively rather than a corporation."
+        ],
+        statements_hi: [
+          "वेब 3.0 तकनीक लोगों को अपने स्वयं के डेटा पर नियंत्रण रखने में सक्षम बनाती है।",
+          "वेब 3.0 की दुनिया में, ब्लॉकचेन-आधारित सोशल नेटवर्क हो सकते हैं।",
+          "वेब 3.0 किसी कॉर्पोरेशन की बजाय सामूहिक रूप से उपयोगकर्ताओं द्वारा संचालित होता है।"
+        ],
+        sub_prompt_en: "Which of the statements given above are correct?",
+        sub_prompt_hi: "उपर्युक्त कथनों में से कौन-से सही हैं?",
+        options_en: [
+          "1 and 2 only",
+          "2 and 3 only",
+          "1 and 3 only",
+          "1, 2 and 3"
+        ],
+        options_hi: [
+          "केवल 1 और 2",
+          "केवल 2 और 3",
+          "केवल 1 और 3",
+          "1, 2 और 3"
+        ],
+        correctIndex: 3, // 1, 2 and 3
+        explanation_en: `
+          <p><b>Correct Answer: Option (d) — 1, 2 and 3</b></p>
+          <p>Web 3.0 represents a decentralized version of the internet built on public blockchains. It gives users sovereign ownership over their personal data, facilitates censorship-resistant decentralized social networks, and employs token-based governance (DAOs) instead of centralized Big Tech control.</p>
+        `,
+        explanation_hi: `
+          <p><b>सही उत्तर: विकल्प (d) — 1, 2 और 3</b></p>
+          <p>वेब 3.0 इंटरनेट का एक विकेंद्रीकृत (decentralized) स्वरूप है जो ब्लॉकचेन तकनीक पर आधारित है। यह उपयोगकर्ताओं को अपने डेटा की संप्रभुता प्रदान करता है, ब्लॉकचेन आधारित सोशल मीडिया प्लेटफॉर्म को सक्षम बनाता है, और केंद्रीयकृत कंपनियों (Big Tech) के बजाय विकेंद्रीकृत स्वायत्त संगठनों (DAOs) द्वारा संचालित होता है।</p>
+        `
+      },
+      {
+        id: 7,
+        year: 2023,
+        paper: "CSAT Paper II",
+        subject: "CSAT",
+        topic: "Number System & Reasoning (संख्या पद्धति एवं तर्कशक्ति)",
+        prompt_en: "A number consists of two digits whose sum is 9. If 27 is subtracted from the number, its digits are interchanged. What is the number?",
+        prompt_hi: "दो अंकों की एक संख्या के अंकों का योग 9 है। यदि संख्या में से 27 घटाया जाता है, तो इसके अंक आपस में बदल जाते हैं। वह संख्या क्या है?",
+        statements_en: [],
+        statements_hi: [],
+        sub_prompt_en: "Choose the correct number:",
+        sub_prompt_hi: "सही संख्या का चयन कीजिए:",
+        options_en: [
+          "36",
+          "63",
+          "45",
+          "54"
+        ],
+        options_hi: [
+          "36",
+          "63",
+          "45",
+          "54"
+        ],
+        correctIndex: 1, // 63
+        explanation_en: `
+          <p><b>Correct Answer: Option (b) — 63</b></p>
+          <p>Let the tens digit be <i>x</i> and units digit be <i>y</i>.<br>
+          Given: <i>x + y = 9</i><br>
+          Original Number = 10x + y<br>
+          Interchanged Number = 10y + x<br>
+          Condition: (10x + y) - 27 = 10y + x<br>
+          9x - 9y = 27  =>  <i>x - y = 3</i><br>
+          Solving: x + y = 9 and x - y = 3 gives 2x = 12 => <b>x = 6</b>, and <b>y = 3</b>.<br>
+          Therefore, the original number is <b>63</b>.</p>
+          <div class="key-learning-point">
+            <b>CSAT Speed Tip:</b> Verify directly from options: 63 - 27 = 36 (digits reversed!). Takes only 5 seconds.
+          </div>
+        `,
+        explanation_hi: `
+          <p><b>सही उत्तर: विकल्प (b) — 63</b></p>
+          <p>माना दहाई का अंक <i>x</i> तथा इकाई का अंक <i>y</i> है।<br>
+          प्रश्नानुसार: <i>x + y = 9</i><br>
+          मूल संख्या = 10x + y<br>
+          अंक पलटने पर संख्या = 10y + x<br>
+          शर्त: (10x + y) - 27 = 10y + x<br>
+          9(x - y) = 27  =>  <i>x - y = 3</i><br>
+          समीकरणों को जोड़ने पर: 2x = 12 => <b>x = 6</b>, तथा <b>y = 3</b>।<br>
+          अतः मूल संख्या = <b>63</b> है।</p>
+          <div class="key-learning-point">
+            <b>सीसैट शॉर्टकट:</b> विकल्पों से सीधे जाँच करें: 63 - 27 = 36 (अंक पलट गए)। यह प्रश्न 5 सेकंड में हल हो जाता है।
+          </div>
+        `
+      },
+      {
+        id: 8,
+        year: 2024,
+        paper: "GS Paper I",
+        subject: "Polity",
+        topic: "Delimitation Commission & Lok Sabha (परिसीमन आयोग)",
+        prompt_en: "With reference to the Delimitation Commission in India, consider the following statements:",
+        prompt_hi: "भारत में परिसीमन आयोग के संदर्भ में, निम्नलिखित कथनों पर विचार कीजिए:",
+        statements_en: [
+          "The orders of the Delimitation Commission cannot be challenged in any court of law.",
+          "The Delimitation Commission orders come into force on a date specified by the President of India."
+        ],
+        statements_hi: [
+          "परिसीमन आयोग के आदेशों को किसी भी न्यायालय में चुनौती नहीं दी जा सकती है।",
+          "परिसीमन आयोग के आदेश भारत के राष्ट्रपति द्वारा निर्दिष्ट तिथि से प्रभावी होते हैं।"
+        ],
+        sub_prompt_en: "Which of the statements given above is/are correct?",
+        sub_prompt_hi: "उपर्युक्त कथनों में से कौन-सा/से सही है/हैं?",
+        options_en: [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        options_hi: [
+          "केवल 1",
+          "केवल 2",
+          "1 और 2 दोनों",
+          "न तो 1, न ही 2"
+        ],
+        correctIndex: 2, // Both 1 and 2
+        explanation_en: `
+          <p><b>Correct Answer: Option (c) — Both 1 and 2</b></p>
+          <p><b>Statement 1 is correct:</b> Article 329(a) of the Constitution provides that the validity of any law relating to the delimitation of constituencies or the allotment of seats to such constituencies shall not be called in question in any court.</p>
+          <p><b>Statement 2 is correct:</b> Once the Delimitation Commission's orders are laid before Lok Sabha and state assemblies, they come into force on the date specified by the President.</p>
+        `,
+        explanation_hi: `
+          <p><b>सही उत्तर: विकल्प (c) — 1 और 2 दोनों</b></p>
+          <p><b>कथन 1 सही है:</b> संविधान के <b>अनुच्छेद 329(a)</b> के अनुसार, निर्वाचन क्षेत्रों के परिसीमन या सीटों के आवंटन से संबंधित किसी भी कानून की वैधता को किसी भी न्यायालय में चुनौती नहीं दी जा सकती।</p>
+          <p><b>कथन 2 सही है:</b> परिसीमन आयोग के आदेश राष्ट्रपति द्वारा अधिसूचित तारीख से लागू होते हैं।</p>
+        `
+      }
+    ];
+
+    /* APP STATE */
+    let currentLang = 'hi'; // Default to Hindi as highlighted by user! ('en', 'hi', 'both')
+    let currentPaper = 'GS Paper I';
+    let currentSubjectFilter = 'All';
+    let currentQuestionIndex = 0;
+    let filteredQuestions = [...QUESTIONS_DB];
+    let userAnswers = {}; // { questionId: selectedOptionIndex }
+    let flaggedQuestions = new Set();
+    let bookmarks = new Set();
+    let soundEnabled = true;
+
+    /* TIMER STATE */
+    let timerSeconds = 120 * 60; // 2 hours
+    let timerRunning = true;
+    let timerInterval = null;
+
+    /* INITIALIZATION */
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      applyFilter();
+      startTimer();
+      renderProgressStats();
+    });
+
+    /* LANGUAGE SWITCHING (CORE USER REQUIREMENT) */
+    function setLanguage(lang) {
+      currentLang = lang;
+      
+      document.getElementById('lang-btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('lang-btn-hi').classList.toggle('active', lang === 'hi');
+      document.getElementById('lang-btn-both').classList.toggle('active', lang === 'both');
+
+      const bannerText = document.getElementById('bannerLanguageText');
+      const langBadgeText = document.getElementById('qLangBadgeText');
+
+      if (lang === 'hi') {
+        bannerText.textContent = "हिन्दी माध्यम में लाइव मॉक टेस्ट सक्रिय (UPSC CSE Prelims Hindi)";
+        langBadgeText.textContent = "हिन्दी माध्यम";
+      } else if (lang === 'en') {
+        bannerText.textContent = "English Medium Mock Test Active (UPSC CSE Prelims English)";
+        langBadgeText.textContent = "English Medium";
+      } else {
+        bannerText.textContent = "द्विभाषी मोड सक्रिय (Bilingual Hindi + English Side-by-Side)";
+        langBadgeText.textContent = "द्विभाषी (Bilingual)";
+      }
+
+      renderCurrentQuestion();
+      lucide.createIcons();
+    }
+
+    /* FILTERING BY PAPER / SUBJECT */
+    function switchPaper(paper) {
+      currentPaper = paper;
+      document.getElementById('tab-gs1').classList.toggle('active', paper === 'GS Paper I');
+      document.getElementById('tab-csat').classList.toggle('active', paper === 'CSAT Paper II');
+      
+      if (paper === 'CSAT Paper II') {
+        currentSubjectFilter = 'CSAT';
+      } else {
+        currentSubjectFilter = 'All';
+      }
+      applyFilter();
+    }
+
+    function filterBySubject(subj) {
+      currentSubjectFilter = subj;
+      
+      // Update filter chips styling
+      document.querySelectorAll('.filter-chip').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.includes(subj) || (subj === 'All' && btn.textContent.includes('All')));
+      });
+
+      applyFilter();
+    }
+
+    function handleSearch(query) {
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        applyFilter();
+        return;
+      }
+
+      filteredQuestions = QUESTIONS_DB.filter(item => {
+        return (
+          item.prompt_en.toLowerCase().includes(q) ||
+          item.prompt_hi.toLowerCase().includes(q) ||
+          item.subject.toLowerCase().includes(q) ||
+          item.topic.toLowerCase().includes(q) ||
+          item.options_en.some(opt => opt.toLowerCase().includes(q)) ||
+          item.options_hi.some(opt => opt.toLowerCase().includes(q))
+        );
+      });
+
+      currentQuestionIndex = 0;
+      renderCurrentQuestion();
+      renderPalette();
+    }
+
+    function applyFilter() {
+      filteredQuestions = QUESTIONS_DB.filter(item => {
+        const matchesPaper = (currentPaper === 'GS Paper I' && item.paper === 'GS Paper I') || 
+                             (currentPaper === 'CSAT Paper II' && item.paper === 'CSAT Paper II') ||
+                             (currentSubjectFilter === 'CSAT');
+        const matchesSubject = (currentSubjectFilter === 'All') || (item.subject === currentSubjectFilter);
+        return matchesPaper && matchesSubject;
+      });
+
+      if (filteredQuestions.length === 0) {
+        filteredQuestions = QUESTIONS_DB; // fallback
+      }
+
+      currentQuestionIndex = 0;
+      renderCurrentQuestion();
+      renderPalette();
+    }
+
+    /* RENDER CURRENT QUESTION */
+    function renderCurrentQuestion() {
+      const q = filteredQuestions[currentQuestionIndex];
+      if (!q) return;
+
+      // Meta Header
+      document.getElementById('qYearBadge').textContent = `UPSC CSE Prelims ${q.year}`;
+      document.getElementById('qSubjectBadge').textContent = q.subject;
+      document.getElementById('qPaperBadge').textContent = q.paper;
+      document.getElementById('qCurrentNumber').textContent = currentQuestionIndex + 1;
+      document.getElementById('qTotalNumber').textContent = filteredQuestions.length;
+
+      // Bookmark state
+      const bookmarkBtn = document.getElementById('bookmarkBtn');
+      bookmarkBtn.classList.toggle('active', bookmarks.has(q.id));
+
+      // Prompts visibility according to language
+      const promptEnEl = document.getElementById('qPromptEn');
+      const promptHiEl = document.getElementById('qPromptHi');
+      const subPromptEnEl = document.getElementById('qSubPromptEn');
+      const subPromptHiEl = document.getElementById('qSubPromptHi');
+
+      if (currentLang === 'en') {
+        promptEnEl.style.display = 'block';
+        promptEnEl.textContent = q.prompt_en;
+        promptHiEl.style.display = 'none';
+
+        subPromptEnEl.style.display = 'block';
+        subPromptEnEl.textContent = q.sub_prompt_en;
+        subPromptHiEl.style.display = 'none';
+      } else if (currentLang === 'hi') {
+        promptEnEl.style.display = 'none';
+        promptHiEl.style.display = 'block';
+        promptHiEl.textContent = q.prompt_hi;
+
+        subPromptEnEl.style.display = 'none';
+        subPromptHiEl.style.display = 'block';
+        subPromptHiEl.textContent = q.sub_prompt_hi;
+      } else { // Both / Bilingual
+        promptEnEl.style.display = 'block';
+        promptEnEl.innerHTML = `<span style="color:#ebb34e; font-size:12px; font-weight:700;">[ENGLISH]</span><br>${q.prompt_en}`;
+        
+        promptHiEl.style.display = 'block';
+        promptHiEl.innerHTML = `<span style="color:#6ee0a0; font-size:12px; font-weight:700;">[हिन्दी]</span><br>${q.prompt_hi}`;
+
+        subPromptEnEl.style.display = 'block';
+        subPromptEnEl.textContent = q.sub_prompt_en;
+        subPromptHiEl.style.display = 'block';
+        subPromptHiEl.textContent = q.sub_prompt_hi;
+      }
+
+      // Statements Box
+      const statementsBox = document.getElementById('statementsBox');
+      const hasStatements = (q.statements_en && q.statements_en.length > 0) || (q.statements_hi && q.statements_hi.length > 0);
+      
+      if (hasStatements) {
+        statementsBox.style.display = 'block';
+        statementsBox.innerHTML = '';
+
+        const stCount = Math.max(q.statements_en.length, q.statements_hi.length);
+        for (let i = 0; i < stCount; i++) {
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'statement-item';
+          
+          let text = '';
+          if (currentLang === 'en') {
+            text = q.statements_en[i] || '';
+          } else if (currentLang === 'hi') {
+            text = q.statements_hi[i] || '';
+          } else {
+            text = `<div>${q.statements_hi[i] || ''}</div><div style="font-size:13.5px; color:#a19b8e; margin-top:2px;"><i>${q.statements_en[i] || ''}</i></div>`;
+          }
+
+          itemDiv.innerHTML = `
+            <span class="statement-num">${i + 1}.</span>
+            <div style="flex-grow:1;">${text}</div>
+          `;
+          statementsBox.appendChild(itemDiv);
+        }
+      } else {
+        statementsBox.style.display = 'none';
+      }
+
+      // Options Rendering
+      const optionsGrid = document.getElementById('optionsGrid');
+      optionsGrid.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
+      const isAnswered = userAnswers.hasOwnProperty(q.id);
+      const selectedIndex = userAnswers[q.id];
+
+      for (let i = 0; i < 4; i++) {
+        const optCard = document.createElement('div');
+        optCard.className = 'option-card';
+        
+        let optText = '';
+        if (currentLang === 'en') {
+          optText = q.options_en[i];
+        } else if (currentLang === 'hi') {
+          optText = q.options_hi[i];
+        } else {
+          optText = `<b>${q.options_hi[i]}</b> <span style="color:#a19b8e; font-size:13px;">(${q.options_en[i]})</span>`;
+        }
+
+        // Check if evaluated
+        if (isAnswered) {
+          optCard.classList.add('evaluated');
+          if (i === q.correctIndex) {
+            optCard.classList.add('correct');
+          } else if (i === selectedIndex && selectedIndex !== q.correctIndex) {
+            optCard.classList.add('wrong');
+          }
+        }
+
+        optCard.innerHTML = `
+          <div class="option-letter">${letters[i]}</div>
+          <div class="option-text">${optText}</div>
+          ${isAnswered && i === q.correctIndex ? '<i data-lucide="check" style="color:#2fbf6c; width:20px; flex-shrink:0;"></i>' : ''}
+          ${isAnswered && i === selectedIndex && selectedIndex !== q.correctIndex ? '<i data-lucide="x" style="color:#e5584c; width:20px; flex-shrink:0;"></i>' : ''}
+        `;
+
+        if (!isAnswered) {
+          optCard.onclick = () => selectOption(i);
+        }
+
+        optionsGrid.appendChild(optCard);
+      }
+
+      // Explanation Box
+      const explanationBox = document.getElementById('explanationBox');
+      const explanationText = document.getElementById('explanationText');
+      const officialKeyBadge = document.getElementById('officialKeyBadge');
+
+      if (isAnswered) {
+        explanationBox.style.display = 'block';
+        officialKeyBadge.textContent = `Official Key: Option ${letters[q.correctIndex]}`;
+
+        if (currentLang === 'en') {
+          explanationText.innerHTML = q.explanation_en;
+        } else if (currentLang === 'hi') {
+          explanationText.innerHTML = q.explanation_hi;
+        } else {
+          explanationText.innerHTML = `
+            <div style="margin-bottom:14px;">${q.explanation_hi}</div>
+            <hr style="border:0; border-top:1px dashed #3b3a36; margin:14px 0;">
+            <div style="font-size:13.5px; color:#a19b8e;">${q.explanation_en}</div>
+          `;
+        }
+      } else {
+        explanationBox.style.display = 'none';
+      }
+
+      // Prev / Next button state
+      document.getElementById('btnPrev').disabled = (currentQuestionIndex === 0);
+      document.getElementById('btnPrev').style.opacity = (currentQuestionIndex === 0) ? '0.5' : '1';
+
+      renderPalette();
+      updateScoreboard();
+      lucide.createIcons();
+    }
+
+    /* OPTION SELECTION & REAL-TIME EVALUATION */
+    function selectOption(index) {
+      const q = filteredQuestions[currentQuestionIndex];
+      if (!q) return;
+
+      userAnswers[q.id] = index;
+
+      // Audio feedback if enabled
+      if (soundEnabled) {
+        playBeep(index === q.correctIndex);
+      }
+
+      renderCurrentQuestion();
+    }
+
+    function resetCurrentQuestion() {
+      const q = filteredQuestions[currentQuestionIndex];
+      if (!q) return;
+      delete userAnswers[q.id];
+      renderCurrentQuestion();
+    }
+
+    function navigateQuestion(delta) {
+      const newIndex = currentQuestionIndex + delta;
+      if (newIndex >= 0 && newIndex < filteredQuestions.length) {
+        currentQuestionIndex = newIndex;
+        renderCurrentQuestion();
+        // Smooth scroll into question card
+        document.getElementById('questionCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function jumpToQuestion(idx) {
+      if (idx >= 0 && idx < filteredQuestions.length) {
+        currentQuestionIndex = idx;
+        renderCurrentQuestion();
+      }
+    }
+
+    function toggleBookmark() {
+      const q = filteredQuestions[currentQuestionIndex];
+      if (!q) return;
+      if (bookmarks.has(q.id)) {
+        bookmarks.delete(q.id);
+      } else {
+        bookmarks.add(q.id);
+      }
+      renderCurrentQuestion();
+    }
+
+    function markForReview() {
+      const q = filteredQuestions[currentQuestionIndex];
+      if (!q) return;
+      if (flaggedQuestions.has(q.id)) {
+        flaggedQuestions.delete(q.id);
+      } else {
+        flaggedQuestions.add(q.id);
+      }
+      renderPalette();
+    }
+
+    /* PALETTE RENDERING */
+    function renderPalette() {
+      const paletteGrid = document.getElementById('paletteGrid');
+      paletteGrid.innerHTML = '';
+      document.getElementById('paletteSubject').textContent = currentSubjectFilter;
+
+      filteredQuestions.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'palette-btn';
+        btn.textContent = idx + 1;
+
+        if (idx === currentQuestionIndex) {
+          btn.classList.add('current');
+        }
+
+        if (userAnswers.hasOwnProperty(q.id)) {
+          const ans = userAnswers[q.id];
+          if (ans === q.correctIndex) {
+            btn.classList.add('answered');
+          } else {
+            btn.classList.add('wrong-ans');
+          }
+        } else if (flaggedQuestions.has(q.id)) {
+          btn.classList.add('review');
+        }
+
+        btn.onclick = () => jumpToQuestion(idx);
+        paletteGrid.appendChild(btn);
+      });
+    }
+
+    /* SCOREBOARD CALCULATION */
+    function updateScoreboard() {
+      let correct = 0;
+      let wrong = 0;
+
+      filteredQuestions.forEach(q => {
+        if (userAnswers.hasOwnProperty(q.id)) {
+          if (userAnswers[q.id] === q.correctIndex) {
+            correct++;
+          } else {
+            wrong++;
+          }
+        }
+      });
+
+      const totalAttempted = correct + wrong;
+      const netScore = (correct * 2.0) - (wrong * 0.66);
+      const accuracy = totalAttempted > 0 ? ((correct / totalAttempted) * 100).toFixed(1) : '0.0';
+
+      document.getElementById('stat-solved').textContent = `${totalAttempted}/${filteredQuestions.length}`;
+      document.getElementById('stat-score').textContent = netScore.toFixed(2);
+
+      document.getElementById('scoreCorrectCount').textContent = correct;
+      document.getElementById('scoreWrongCount').textContent = wrong;
+      document.getElementById('scoreAccuracy').textContent = `${accuracy}%`;
+      document.getElementById('scoreTotalMarks').textContent = `${netScore.toFixed(2)} / ${(filteredQuestions.length * 2).toFixed(1)}`;
+    }
+
+    /* TIMER FUNCTIONALITY */
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (timerRunning && timerSeconds > 0) {
+          timerSeconds--;
+          updateTimerDisplay();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timerSeconds / 60);
+      const seconds = timerSeconds % 60;
+      const formatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      document.getElementById('timerDisplay').textContent = formatted;
+    }
+
+    function toggleTestTimer() {
+      timerRunning = !timerRunning;
+      const timerBtn = document.getElementById('timerDisplay');
+      timerBtn.style.opacity = timerRunning ? '1' : '0.5';
+    }
+
+    /* SOUND FEEDBACK (WEB AUDIO API BEEP) */
+    function playBeep(isCorrect) {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (isCorrect) {
+          osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
+          osc.frequency.setValueAtTime(880, ctx.currentTime + 0.1); // A5
+          gain.gain.setValueAtTime(0.12, ctx.currentTime);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.25);
+        } else {
+          osc.frequency.setValueAtTime(260, ctx.currentTime);
+          osc.frequency.setValueAtTime(220, ctx.currentTime + 0.1);
+          gain.gain.setValueAtTime(0.12, ctx.currentTime);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.25);
+        }
+      } catch (e) {
+        // AudioContext not allowed or muted
+      }
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const sBtn = document.getElementById('soundBtn');
+      sBtn.innerHTML = soundEnabled ? '<i data-lucide="volume-2" style="width:16px;"></i>' : '<i data-lucide="volume-x" style="width:16px;"></i>';
+      sBtn.classList.toggle('active', soundEnabled);
+      lucide.createIcons();
+    }
+
+    /* SUBMIT MOCK TEST & SCORECARD */
+    function submitMockTest() {
+      let correct = 0;
+      let wrong = 0;
+
+      filteredQuestions.forEach(q => {
+        if (userAnswers.hasOwnProperty(q.id)) {
+          if (userAnswers[q.id] === q.correctIndex) correct++;
+          else wrong++;
+        }
+      });
+
+      const totalAttempted = correct + wrong;
+      const netMarks = ((correct * 2.0) - (wrong * 0.66)).toFixed(2);
+      const accuracy = totalAttempted > 0 ? ((correct / totalAttempted) * 100).toFixed(1) : 0;
+      
+      const timeSpentSec = (120 * 60) - timerSeconds;
+      const m = Math.floor(timeSpentSec / 60);
+      const s = timeSpentSec % 60;
+
+      document.getElementById('modalNetScore').textContent = netMarks;
+      document.getElementById('modalCorrectCount').textContent = correct;
+      document.getElementById('modalWrongCount').textContent = wrong;
+      document.getElementById('modalAccuracy').textContent = `${accuracy}%`;
+      document.getElementById('modalTimeSpent').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+
+      openModal('scorecardModal');
+    }
+
+    function restartMockTest() {
+      userAnswers = {};
+      flaggedQuestions.clear();
+      timerSeconds = 120 * 60;
+      timerRunning = true;
+      closeModal('scorecardModal');
+      currentQuestionIndex = 0;
+      renderCurrentQuestion();
+    }
+
+    /* MODAL HELPERS */
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      lucide.createIcons();
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+    }
+
+    // Close on backdrop click
+    window.onclick = function(e) {
+      if (e.target.classList.contains('modal-backdrop')) {
+        e.target.classList.remove('open');
+      }
+    };
+
+    /* SECTION HELPER */
+    function switchSection(sec) {
+      if (sec === 'practice') {
+        document.getElementById('practiceArea').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    /* THEME TOGGLE */
+    let isDark = true;
+    function toggleDarkMode() {
+      isDark = !isDark;
+      const themeIcon = document.getElementById('theme-icon');
+      if (!isDark) {
+        document.documentElement.style.setProperty('--background', '#f5f3ec');
+        document.documentElement.style.setProperty('--foreground', '#1d1a12');
+        document.documentElement.style.setProperty('--card', '#ffffff');
+        document.documentElement.style.setProperty('--qc-surface', '#faf8f3');
+        document.documentElement.style.setProperty('--border', '#e0dbcf');
+        themeIcon.setAttribute('data-lucide', 'sun');
+      } else {
+        document.documentElement.style.removeProperty('--background');
+        document.documentElement.style.removeProperty('--foreground');
+        document.documentElement.style.removeProperty('--card');
+        document.documentElement.style.removeProperty('--qc-surface');
+        document.documentElement.style.removeProperty('--border');
+        themeIcon.setAttribute('data-lucide', 'moon');
+      }
+      lucide.createIcons();
+    }
+
+    /* PROGRESS STATS HELPER */
+    function renderProgressStats() {
+      const container = document.getElementById('subjectProgressList');
+      if (!container) return;
+      const subjects = [
+        { name: "Indian Polity (भारतीय राजव्यवस्था)", qCount: "18 Solved", acc: "85%" },
+        { name: "Economy (भारतीय अर्थव्यवस्था)", qCount: "22 Solved", acc: "78%" },
+        { name: "Environment (पर्यावरण एवं पारिस्थितिकी)", qCount: "16 Solved", acc: "81%" },
+        { name: "History & Culture (इतिहास)", qCount: "15 Solved", acc: "73%" },
+        { name: "CSAT Paper II (सीसैट)", qCount: "25 Solved", acc: "92%" }
+      ];
+
+      container.innerHTML = subjects.map(s => `
+        <div style="background:#252523; padding:12px 16px; border-radius:12px; border:1px solid #3b3a36; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:14px; font-weight:600; color:#ECE7DC;">${s.name}</div>
+            <div style="font-size:12px; color:#a19b8e;">${s.qCount}</div>
+          </div>
+          <span class="q-pill highlight">${s.acc} Accuracy</span>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

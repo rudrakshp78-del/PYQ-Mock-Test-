@@ -1,0 +1,20 @@
+{
+  "name": "the-pyq-project",
+  "version": "1.0.0",
+  "description": "Free UPSC CSE Prelims PYQ Practice & Mock Tests with Hindi Language Support",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "upsc",
+    "pyq",
+    "mock-test",
+    "hindi",
+    "prelims",
+    "dark-mode"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
