@@ -12,6 +12,8 @@
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- 10-Year Full Question Database Across All Subjects -->
+  <script src="questions.js"></script>
 
   <style>
     /* EXACT MEASURED COLOR THEME (VERBATIM FROM SPEC) */
@@ -1753,7 +1755,9 @@
   <!-- SCRIPT & 10-YEAR QUESTION DATABASE -->
   <script>
     /* COMPREHENSIVE 10-YEAR UPSC CSE PRELIMS QUESTIONS DATABASE (2014 TO 2024) */
-    const QUESTIONS_DB = [
+    const QUESTIONS_DB = (typeof window !== 'undefined' && window.QUESTIONS_DB && window.QUESTIONS_DB.length > 0)
+      ? window.QUESTIONS_DB
+      : [
       // 2024
       {
         id: 1,
